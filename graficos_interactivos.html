@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Gráficos</title>
+    <style>
+        /* Estilos CSS para la lista de gráficos */
+        .grafico {
+            margin-bottom: 20px; /* Espacio entre gráficos */
+            border: 1px solid #ccc; /* Borde alrededor de cada gráfico */
+            padding: 10px; /* Espacio interno dentro del borde */
+            display: none; /* Ocultar por defecto */
+        }
+    </style>
+    <script>
+        function mostrarGrafico() {
+            var selector = document.getElementById('selectorAgencia');
+            var valorSeleccionado = selector.value;
+            var graficos = document.getElementsByClassName('grafico');
+
+            for (var i = 0; i < graficos.length; i++) {
+                graficos[i].style.display = 'none';  // Ocultar todos los gráficos
+            }
+
+            var graficoSeleccionado = document.getElementById(valorSeleccionado);
+            if (graficoSeleccionado) {
+                graficoSeleccionado.style.display = 'block';  // Mostrar el gráfico seleccionado
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Seleccione una Agencia</h1>
+    <select id="selectorAgencia" onchange="mostrarGrafico()">
+        <option value="">Seleccione una agencia</option>
+        <option value="agencia1">AGENCIA 1</option>
+        <option value="agencia2">AGENCIA 2</option>
+    </select>
+
+    <!-- Primer gráfico -->
+    <div id="agencia1" class="grafico">
+        <h2><center>AGENCIA 1</center></h2>
+        <iframe src="mi_grafico.html" width="1000" height="500" frameborder="0"></iframe>
+    </div>
+
+    <!-- Segundo gráfico -->
+    <div id="agencia2" class="grafico">
+        <h2><center>AGENCIA 2</center></h2>
+        <iframe src="mi_grafico.html" width="1000" height="500" frameborder="0"></iframe>
+    </div>
+
+</body>
+</html>
